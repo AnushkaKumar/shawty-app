@@ -1,0 +1,6 @@
+docker build -t gcr.io/shawty/shawty:v6 .
+docker push gcr.io/shawty/shawty:v6
+kubectl create deployment hello-web --image=gcr.io/shawty/shawty:v6
+kubectl get pods
+kubectl expose deployment hello-web --type=LoadBalancer --port 80 --target-port 8080
+kubectl get services
